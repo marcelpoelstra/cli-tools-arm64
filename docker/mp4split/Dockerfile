@@ -6,7 +6,7 @@ FROM ${ARCH}/ubuntu:focal
 # https://docs.docker.com/engine/reference/builder/#understand-how-arg-and-from-interact
 ARG DEBIAN_FRONTEND=noninteractive
 # Unified Streaming version
-ARG VERSION=1.11.10
+ARG VERSION=1.11.11
 
 RUN apt update && apt-get install -y wget gnupg2
 
@@ -30,5 +30,5 @@ ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 WORKDIR /data
 
-CMD ["unified_capture"]
+CMD ["mp4split"]
 
