@@ -1,5 +1,5 @@
 cd docker
-cd ../mp4split
+cd /mp4split
 echo "building local docker image mp4split..."
 docker build . -t mp4split:latest
 echo "complete"
