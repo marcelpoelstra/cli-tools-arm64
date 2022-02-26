@@ -1,4 +1,9 @@
-# Unified Streaming command line tools for systems based on arm64 architecture
+
+
+# NOTE THESE ARE (UBUNTU BASED) UNSUPPORTED ARM64 VERSIONS OF THE UNIFIED STREAMING COMMAND LINE TOOLS, AIMED TO RUN ON APPLE SILICON / ARM64 BASED SYSTEMS
+
+
+# Unified Streaming command line tools for systems based on ARM64 architecture 
 
 This repository is used to build Docker images for each of the Unified Streaming command line
 tools for use on systems based on arm64 architecture, such as the latest Macbook Pro M1 systems
@@ -64,32 +69,32 @@ After successful completion of the script, please add the following example in y
 export UspLicenseKey=<YOUR_USP_LICENSE_KEY>
 
 mp4split() {
-  IMAGE=mp4split
+  IMAGE=mp4split-arm64
   docker run --rm -it -e UspLicenseKey -v ${PWD}:/data --workdir /data $IMAGE "$@"
 }
 
 cpix_verify() {
-  BASE_IMAGE=cpix_verify
+  BASE_IMAGE=cpix_verify-arm64
   docker run --rm -it -e UspLicenseKey -v ${PWD}:/data --workdir /data $IMAGE "$@"
 }
 
 manifest_edit() {
-  IMAGE=manifest_edit
+  IMAGE=manifest_edit-arm64
   docker run --rm -it -e UspLicenseKey -v ${PWD}:/data --workdir /data $IMAGE "$@"
 }
 
 push_input_stream() {
-  IMAGE=push_input_stream
+  IMAGE=push_input_stream-arm64
   docker run --rm -it -e UspLicenseKey -v ${PWD}:/data --workdir /data $IMAGE "$@"
 }
 
 unified_capture() {
-  IMAGE=unified_capture
+  IMAGE=unified_capture-arm64
   docker run --rm -it -e UspLicenseKey -v ${PWD}:/data --workdir /data $IMAGE "$@"
 }
 
 unified_remix() {
-  IMAGE=unified_remix
+  IMAGE=unified_remix-arm64
   docker run --rm -it -e UspLicenseKey -v ${PWD}:/data --workdir /data $IMAGE "$@"
 }
 ```

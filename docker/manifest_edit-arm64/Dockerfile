@@ -6,7 +6,7 @@ FROM ${ARCH}/ubuntu:focal
 # https://docs.docker.com/engine/reference/builder/#understand-how-arg-and-from-interact
 ARG DEBIAN_FRONTEND=noninteractive
 # Unified Streaming version
-ARG VERSION=1.11.11
+ARG VERSION=1.11.12
 
 RUN apt update && apt-get install -y wget gnupg2
 
@@ -19,6 +19,13 @@ RUN wget https://beta.apt.unified-streaming.com/unifiedstreaming.pub && \
 RUN apt-get update \
 && apt-get -y install \
     "mp4split=${VERSION}" \
+    "manifest-edit=${VERSION}" \
+    python3 \
+    python3-pip \
+&&  pip3 install \
+        pyyaml==5.3.1 \
+        schema==0.7.3 \
+&&  apt-get -y autoremove \
 &&  apt-get clean
 
 # Copy entrypoint script
@@ -30,4 +37,4 @@ ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 WORKDIR /data
 
-CMD ["unified_capture"]
+CMD ["manifest_edit"]
